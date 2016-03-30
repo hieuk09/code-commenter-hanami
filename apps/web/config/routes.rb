@@ -3,6 +3,6 @@
 
 get "/auth/signout", to: 'session#destroy'
 get "/auth/failure", to: 'session#failure'
-get "/auth/:provider/callback", to: "session#new"
+get "/auth/github/callback", to: "session#new"
 
 get "/", to: "home#index"

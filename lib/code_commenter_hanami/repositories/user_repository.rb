@@ -21,10 +21,10 @@ class UserRepository
      end
 
      if found
-       found.update(attrs)
+       found.update(attributes)
        update(found)
      else
-       create(User.new(attrs.merge(github_id: github_id)))
+       create(User.new(attributes.merge(github_id: github_id)))
      end
   end
 end

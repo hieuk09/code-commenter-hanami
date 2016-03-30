@@ -1,1 +1,6 @@
-= link_to 'Login using Github', "/auth/github"
+- if signed_in?
+  p Welcome #{current_user.name}
+  p
+    = link_to "Sign Out", '/auth/signout'
+- else
+  = link_to 'Login using Github', "/auth/github"
