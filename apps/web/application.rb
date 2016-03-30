@@ -80,6 +80,15 @@ module Web
       #
       # middleware.use Rack::Protection
 
+      middleware.use Warden::Manager do |manager|
+        manager.failure_app = Web::Controllers::Session::Failure.new
+      end
+
+      middleware.use OmniAuth::Builder do
+        provider :github, ENV["GITHUB_CLIENT_KEY"], ENV["GITHUB_CLIENT_SECRET"],
+          scope: "user:email,public_repo"
+      end
+
       # Default format for the requests that don't specify an HTTP_ACCEPT header
       # Argument: A symbol representation of a mime type, default to :html
       #
@@ -211,8 +220,10 @@ module Web
       #
       # See: http://www.rubydoc.info/gems/hanami-controller#Configuration
       controller.prepare do
-        # include MyAuthentication # included in all the actions
-        # before :authenticate!    # run an authentication before callback
+        require_relative "./controllers/authentication"
+        include Web::Authentication
+
+        expose :flash
       end
 
       # Configure the code that will yield each time Web::View is included

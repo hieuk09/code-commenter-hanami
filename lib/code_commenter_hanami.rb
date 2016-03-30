@@ -37,6 +37,19 @@ Hanami::Model.configure do
     #   attribute :id,   Integer
     #   attribute :name, String
     # end
+
+    collection :users do
+      entity     User
+      repository UserRepository
+
+      attribute :id, Integer
+      attribute :github_id, Integer
+      attribute :name, String
+      attribute :nickname, String
+      attribute :image, String
+      attribute :email, String
+      attribute :github_access_token, String
+    end
   end
 end.load!
 
@@ -50,3 +63,9 @@ Hanami::Mailer.configure do
     # production :stmp, address: ENV['SMTP_PORT'], port: 1025
   end
 end.load!
+
+Warden::Manager.serialize_into_session(&:id)
+
+Warden::Manager.serialize_from_session do |id|
+  UserRepository.find(id)
+end
