@@ -9,6 +9,10 @@ gem 'warden'
 gem "omniauth-github"
 gem 'slim'
 
+group :development, :test do
+  gem 'byebug'
+end
+
 group :test do
   gem 'minitest'
   gem 'capybara'
