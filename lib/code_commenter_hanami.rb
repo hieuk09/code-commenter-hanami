@@ -16,7 +16,7 @@ Hanami::Model.configure do
   #    adapter type: :sql, uri: 'postgres://localhost/code_commenter_hanami_development'
   #    adapter type: :sql, uri: 'mysql://localhost/code_commenter_hanami_development'
   #
-  adapter type: :file_system, uri: ENV['CODE_COMMENTER_HANAMI_DATABASE_URL']
+  adapter type: :sql, uri: ENV['CODE_COMMENTER_HANAMI_DATABASE_URL']
 
   ##
   # Database mapping

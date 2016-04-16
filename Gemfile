@@ -9,6 +9,8 @@ gem 'warden'
 gem "omniauth-github"
 gem 'slim'
 
+gem 'pg'
+
 group :development, :test do
   gem 'byebug'
 end
