@@ -60,7 +60,7 @@ GEM
       mime-types (>= 1.16, < 3)
     mime-types (2.99.1)
     mini_portile2 (2.4.0)
-    minitest (5.8.4)
+    minitest (5.11.3)
     multi_json (1.11.2)
     multi_xml (0.5.5)
     multipart-post (2.0.0)
