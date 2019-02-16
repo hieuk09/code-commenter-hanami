@@ -2,7 +2,7 @@ GEM
   remote: https://rubygems.org/
   specs:
     addressable (2.4.0)
-    byebug (8.2.2)
+    byebug (11.0.0)
     capybara (2.6.2)
       addressable
       mime-types (>= 1.16)
